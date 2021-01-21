@@ -15,6 +15,34 @@ This api contains:
 
 2) Run in the root project `sudo docker-compose up` to initialize the application.
 
+3) Run the comands bellow in your terminal:
+
+- List planets
+```json
+  curl -H "Content-Type: application/json" -X GET http://localhost:3000/planets?limit=2&page=1
+```
+Or access [this url](http://localhost:3000/planets?limit=2&page=1) in your broswer.
+
+- Get planet by Id
+```json
+  curl -H "Content-Type: application/json" -X GET http://localhost:3000/planets/:id
+```
+
+- Get planet by Name
+```json
+  curl -H "Content-Type: application/json" -X GET http://localhost:3000/planets/by-name?name=Hoth
+```
+
+- Add Planet
+```json
+  curl -d '{ "name":"Bespin", "ground":"gas giant", "weather": "temperate" }' -H "Content-Type: application/json" -X POST http://localhost:3000/planets
+```
+
+- DElete planet by Id
+```json
+  curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/planets/:id
+```
+
 ## How to run tests
 
 Run `npm run test` to execute all tests of the api.
