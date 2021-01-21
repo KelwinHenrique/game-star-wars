@@ -9,7 +9,6 @@ export class CreatePlanetService {
   async createPlanet(body: BodyPlanetDto): Promise<any> {
     try {
       await this.planetsRepository.createPlanet(body);
-      return { body };
     } catch (error) {
       return Promise.reject({ message: 'Error to create planet' });
     }
