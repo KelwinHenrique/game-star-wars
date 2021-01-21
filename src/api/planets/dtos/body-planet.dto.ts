@@ -10,7 +10,7 @@ class BodyPlanetDto {
 
   @IsNotEmpty({ message: 'Ground cannot be empty' })
   @IsString()
-  ground: boolean;
+  ground: string;
 }
 
 export { BodyPlanetDto };

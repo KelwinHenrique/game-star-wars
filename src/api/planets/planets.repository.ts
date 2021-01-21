@@ -1,14 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
+import axios from 'axios';
 import { Planet } from './planets.schema';
-import { BodyPlanetDto, QueryPaginateDto } from './dtos';
+import { QueryPaginateDto, PlanetDto } from './dtos';
 
 @Injectable()
 export class PlanetsRepository {
   constructor(@InjectModel(Planet.name) private planetModel: Model<Planet>) {}
 
-  async createPlanet(bodyPlanetDto: BodyPlanetDto): Promise<Planet> {
+  async createPlanet(bodyPlanetDto: PlanetDto): Promise<Planet> {
     const createdPlanet: Planet = new this.planetModel(bodyPlanetDto);
     return createdPlanet.save();
   }
@@ -38,5 +39,13 @@ export class PlanetsRepository {
     bodyPlanetDto: any,
   ): Promise<Planet> {
     return this.planetModel.findByIdAndUpdate(planetId, bodyPlanetDto);
+  }
+
+  async getPlanetsInSwapi(url: string): Promise<any> {
+    return await axios.get(url);
+  }
+
+  async getPlanetByName(name: string): Promise<Planet> {
+    return this.planetModel.findOne({ name });
   }
 }

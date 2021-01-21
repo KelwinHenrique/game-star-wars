@@ -48,7 +48,16 @@ HOST/planets/:id
 
 ```json
 HTTP/1.1 201
-{}
+{
+ "name": "Tatooine",
+ "ground": "Poroso",
+ "weather": "Hot",
+ "films": 5,
+ "_id": "6008f85b149ae8c5461e6c05",
+ "createdAt": "2021-01-21T03:43:23.157Z",
+ "updatedAt": "2021-01-21T03:43:23.157Z",
+ "__v": 0
+}
 ```
 
 ### Error response example
@@ -133,9 +142,10 @@ HOST/planets/:id
 
 ```json
 {
- "name": "Terra",
+ "name": "Tatooine",
  "ground": "Poroso",
  "weather": "Hot",
+ "films": 5,
  "_id": "6008f85b149ae8c5461e6c05",
  "createdAt": "2021-01-21T03:43:23.157Z",
  "updatedAt": "2021-01-21T03:43:23.157Z",
@@ -172,9 +182,10 @@ GET /planets
  "count": 1,
  "planets": [
   {
-   "name": "Terra",
+   "name": "Tatooine",
    "ground": "Poroso",
    "weather": "Hot",
+   "films": 5,
    "_id": "6008f85b149ae8c5461e6c05",
    "createdAt": "2021-01-21T03:43:23.157Z",
    "updatedAt": "2021-01-21T03:43:23.157Z",

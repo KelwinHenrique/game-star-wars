@@ -1,7 +1,8 @@
 class PlanetDto {
   name: string;
   weather: string;
-  ground: boolean;
+  ground: string;
+  films: number;
 }
 
 export { PlanetDto };

@@ -37,9 +37,10 @@ export class PlanetsController {
    *  "count": 1,
    *  "planets": [
    *   {
-   *    "name": "Terra",
+   *    "name": "Tatooine",
    *    "ground": "Poroso",
    *    "weather": "Hot",
+   *    "films": 5,
    *    "_id": "6008f85b149ae8c5461e6c05",
    *    "createdAt": "2021-01-21T03:43:23.157Z",
    *    "updatedAt": "2021-01-21T03:43:23.157Z",
@@ -72,9 +73,10 @@ export class PlanetsController {
    * HOST/planets/:id
    * @apiSuccessExample {json} Success-Response:
    * {
-   *  "name": "Terra",
+   *  "name": "Tatooine",
    *  "ground": "Poroso",
    *  "weather": "Hot",
+   *  "films": 5,
    *  "_id": "6008f85b149ae8c5461e6c05",
    *  "createdAt": "2021-01-21T03:43:23.157Z",
    *  "updatedAt": "2021-01-21T03:43:23.157Z",
@@ -193,7 +195,16 @@ export class PlanetsController {
    * }
    * @apiSuccessExample {json} Success-Response:
    * HTTP/1.1 201
-   * {}
+   * {
+   *  "name": "Tatooine",
+   *  "ground": "Poroso",
+   *  "weather": "Hot",
+   *  "films": 5,
+   *  "_id": "6008f85b149ae8c5461e6c05",
+   *  "createdAt": "2021-01-21T03:43:23.157Z",
+   *  "updatedAt": "2021-01-21T03:43:23.157Z",
+   *  "__v": 0
+   * }
    * @apiErrorExample {json} Error-Response:
    * HTTP/1.1 400 Not Found
    * {
