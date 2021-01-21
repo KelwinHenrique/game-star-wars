@@ -15,6 +15,7 @@ import {
   UpdatePlanetByIdService,
   CreatePlanetService,
 } from './services';
+import { BodyPlanetDto } from './dtos';
 
 @Controller('planets')
 export class PlanetsController {
@@ -56,7 +57,7 @@ export class PlanetsController {
   @Put(':id')
   async updatePlanetById(
     @Param('id') id: string,
-    @Body() body: any,
+    @Body() body: BodyPlanetDto,
   ): Promise<any> {
     try {
       return await this.updatePlanetByIdService.updatePlanetById(id, body);
@@ -66,7 +67,7 @@ export class PlanetsController {
   }
 
   @Post()
-  async createPlanet(@Body() body: any): Promise<any> {
+  async createPlanet(@Body() body: BodyPlanetDto): Promise<any> {
     try {
       return await this.createPlanetService.createPlanet(body);
     } catch (error) {

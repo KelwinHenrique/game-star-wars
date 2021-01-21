@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { BodyPlanetDto } from './../../dtos';
 
 @Injectable()
 export class UpdatePlanetByIdService {
-  async updatePlanetById(id: string, body: any): Promise<any> {
+  async updatePlanetById(id: string, body: BodyPlanetDto): Promise<any> {
     try {
       return { id, body };
     } catch (error) {
