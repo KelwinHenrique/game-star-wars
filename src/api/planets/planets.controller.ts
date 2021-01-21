@@ -48,7 +48,7 @@ export class PlanetsController {
    *  "__v": 0
    * }
    * @apiErrorExample {json} Error-Response:
-   * HTTP/1.1 400 Not Found
+   * HTTP/1.1 400 Bad Request
    * {
    *  "statusCode": 400,
    *  "message": "Error to find planet",
@@ -85,7 +85,7 @@ export class PlanetsController {
    *  ]
    * }
    * @apiErrorExample {json} Error-Response:
-   * HTTP/1.1 400 Not Found
+   * HTTP/1.1 400 Bad Request
    * {
    *  "statusCode": 400,
    *  "message": "Error to find planets",
@@ -119,7 +119,7 @@ export class PlanetsController {
    *  "__v": 0
    * }
    * @apiErrorExample {json} Error-Response:
-   * HTTP/1.1 400 Not Found
+   * HTTP/1.1 400 Bad Request
    * {
    *  "statusCode": 400,
    *  "message": "Error to find planet",
@@ -146,7 +146,7 @@ export class PlanetsController {
    *  "id": "planet_id"
    * }
    * @apiErrorExample {json} Error-Response:
-   * HTTP/1.1 400 Not Found
+   * HTTP/1.1 400 Bad Request
    * {
    *  "statusCode": 400,
    *  "message": "Error to delete planet",
@@ -184,13 +184,13 @@ export class PlanetsController {
    *  "weather": "Hot"
    * }
    * @apiErrorExample {json} Error-Response:
-   * HTTP/1.1 400 Not Found
+   * HTTP/1.1 400 Bad Request
    * {
    *  "statusCode": 400,
    *  "message": "Error to update planet",
    *  "error": "Bad Request"
    * }
-   * HTTP/1.1 400 Not Found
+   * HTTP/1.1 400 Bad Request
    * {
    *  "statusCode": 400,
    *  "message": [
@@ -242,13 +242,13 @@ export class PlanetsController {
    *  "__v": 0
    * }
    * @apiErrorExample {json} Error-Response:
-   * HTTP/1.1 400 Not Found
+   * HTTP/1.1 400 Bad Request
    * {
    *  "statusCode": 400,
    *  "message": "Error to create planet",
    *  "error": "Bad Request"
    * }
-   * HTTP/1.1 400 Not Found
+   * HTTP/1.1 400 Bad Request
    * {
    *  "statusCode": 400,
    *  "message": [

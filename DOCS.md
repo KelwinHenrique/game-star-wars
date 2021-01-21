@@ -7,6 +7,7 @@ Api of planets to star wars game.
    - [Create new planet](#Create-new-planet)
    - [Delete a planet](#Delete-a-planet)
    - [Get a planet by id](#Get-a-planet-by-id)
+   - [Get a planet by name](#Get-a-planet-by-name)
    - [Get all planets](#Get-all-planets)
    - [Update a planet](#Update-a-planet)
 
@@ -65,13 +66,13 @@ HTTP/1.1 201
 #### Error response example - `Error-Response:`
 
 ```json
-HTTP/1.1 400 Not Found
+HTTP/1.1 400 Bad Request
 {
  "statusCode": 400,
  "message": "Error to create planet",
  "error": "Bad Request"
 }
-HTTP/1.1 400 Not Found
+HTTP/1.1 400 Bad Request
 {
  "statusCode": 400,
  "message": [
@@ -114,7 +115,7 @@ HOST/planets/:id
 #### Error response example - `Error-Response:`
 
 ```json
-HTTP/1.1 400 Not Found
+HTTP/1.1 400 Bad Request
 {
  "statusCode": 400,
  "message": "Error to delete planet",
@@ -158,7 +159,51 @@ HOST/planets/:id
 #### Error response example - `Error-Response:`
 
 ```json
-HTTP/1.1 400 Not Found
+HTTP/1.1 400 Bad Request
+{
+ "statusCode": 400,
+ "message": "Error to find planet",
+ "error": "Bad Request"
+}
+```
+
+## <a name='Get-a-planet-by-name'></a> Get a planet by name
+[Back to top](#top)
+
+```
+GET /planets
+```
+
+### Parameters examples
+`json` - Request-Example:
+
+```json
+HOST/planets/?name=Hoth
+```
+
+### Success response example
+
+#### Success response example - `Success-Response:`
+
+```json
+{
+ "name": "Hoth",
+ "ground": "Poroso",
+ "weather": "Hot",
+ "films": 5,
+ "_id": "6008f85b149ae8c5461e6c05",
+ "createdAt": "2021-01-21T03:43:23.157Z",
+ "updatedAt": "2021-01-21T03:43:23.157Z",
+ "__v": 0
+}
+```
+
+### Error response example
+
+#### Error response example - `Error-Response:`
+
+```json
+HTTP/1.1 400 Bad Request
 {
  "statusCode": 400,
  "message": "Error to find planet",
@@ -200,7 +245,7 @@ GET /planets
 #### Error response example - `Error-Response:`
 
 ```json
-HTTP/1.1 400 Not Found
+HTTP/1.1 400 Bad Request
 {
  "statusCode": 400,
  "message": "Error to find planets",
@@ -253,13 +298,13 @@ HOST/planets/:id
 #### Error response example - `Error-Response:`
 
 ```json
-HTTP/1.1 400 Not Found
+HTTP/1.1 400 Bad Request
 {
  "statusCode": 400,
  "message": "Error to update planet",
  "error": "Bad Request"
 }
-HTTP/1.1 400 Not Found
+HTTP/1.1 400 Bad Request
 {
  "statusCode": 400,
  "message": [
