@@ -38,7 +38,7 @@ Or access [this url](http://localhost:3000/planets?limit=2&page=1) in your brosw
   curl -d '{ "name":"Bespin", "ground":"gas giant", "weather": "temperate" }' -H "Content-Type: application/json" -X POST http://localhost:3000/planets
 ```
 
-- DElete planet by Id
+- Delete planet by Id
 ```json
   curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/planets/:id
 ```
@@ -62,26 +62,26 @@ Run `npm run test` to execute all tests of the api.
 │   ├── api
 │   │   ├── planets
 │   │   │   ├── services
-│   │   │   │   |  ├── create-planet
-│   │   │   │   |  |  ├── create-planet.service.ts
-│   │   │   │   |  |  ├── create-planet.spec.ts
-│   │   │   │   |  |  ├── index.ts
-│   │   │   │   |  ├── delete-planet-by-id
-│   │   │   │   |  |  ├── delete-planet-by-id.service.ts
-│   │   │   │   |  |  ├── delete-planet-by-id.spec.ts
-│   │   │   │   |  |  ├── index.ts
-│   │   │   │   |  ├── get-all-planets
-│   │   │   │   |  |  ├── get-all-planets.service.ts
-│   │   │   │   |  |  ├── get-all-planets.spec.ts
-│   │   │   │   |  |  ├── index.ts
-│   │   │   │   |  ├── get-planet-by-id
-│   │   │   │   |  |  ├── get-planet-by-id.service.ts
-│   │   │   │   |  |  ├── get-planet-by-id.spec.ts
-│   │   │   │   |  |  ├── index.ts
-│   │   │   │   |  ├── get-planet-by-name
-│   │   │   │   |  |  ├── get-planet-by-name.service.ts
-│   │   │   │   |  |  ├── get-planet-by-name.spec.ts
-│   │   │   │   |  |  ├── index.ts
+│   │   │   │   │  ├── create-planet
+│   │   │   │   │  │  ├── create-planet.service.ts
+│   │   │   │   │  │  ├── create-planet.spec.ts
+│   │   │   │   │  │  ├── index.ts
+│   │   │   │   │  ├── delete-planet-by-id
+│   │   │   │   │  │  ├── delete-planet-by-id.service.ts
+│   │   │   │   │  │  ├── delete-planet-by-id.spec.ts
+│   │   │   │   │  │  ├── index.ts
+│   │   │   │   │  ├── get-all-planets
+│   │   │   │   │  │  ├── get-all-planets.service.ts
+│   │   │   │   │  │  ├── get-all-planets.spec.ts
+│   │   │   │   │  │  ├── index.ts
+│   │   │   │   │  ├── get-planet-by-id
+│   │   │   │   │  │  ├── get-planet-by-id.service.ts
+│   │   │   │   │  │  ├── get-planet-by-id.spec.ts
+│   │   │   │   │  │  ├── index.ts
+│   │   │   │   │  ├── get-planet-by-name
+│   │   │   │   │  │  ├── get-planet-by-name.service.ts
+│   │   │   │   │  │  ├── get-planet-by-name.spec.ts
+│   │   │   │   │  │  ├── index.ts
 │   │   │   │   ├── index.ts
 │   │   │   ├── dtos
 │   │   │   │   ├── body-planet.dto.ts
