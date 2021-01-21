@@ -28,4 +28,8 @@ export class PlanetsRepository {
   async getPlanetById(planetId: string): Promise<Planet> {
     return this.planetModel.findById(planetId);
   }
+
+  async deletePlanetById(planetId: string): Promise<Planet> {
+    return this.planetModel.findByIdAndDelete(planetId);
+  }
 }
