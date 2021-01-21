@@ -24,4 +24,8 @@ export class PlanetsRepository {
   async countAllPlanets(): Promise<number> {
     return this.planetModel.countDocuments();
   }
+
+  async getPlanetById(planetId: string): Promise<Planet> {
+    return this.planetModel.findById(planetId);
+  }
 }
