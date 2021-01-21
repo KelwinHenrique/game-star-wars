@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Planet } from './planets.schema';
-import { BodyPlanetDto } from './dtos';
+import { BodyPlanetDto, QueryPaginateDto } from './dtos';
 
 @Injectable()
 export class PlanetsRepository {
@@ -11,5 +11,17 @@ export class PlanetsRepository {
   async createPlanet(bodyPlanetDto: BodyPlanetDto): Promise<Planet> {
     const createdPlanet: Planet = new this.planetModel(bodyPlanetDto);
     return createdPlanet.save();
+  }
+
+  async getAllPlanets(query: QueryPaginateDto): Promise<Planet[]> {
+    return this.planetModel
+      .find()
+      .skip(query.limit * query.page)
+      .limit(query.limit * 1)
+      .sort([['date', 1]]);
+  }
+
+  async countAllPlanets(): Promise<number> {
+    return this.planetModel.countDocuments();
   }
 }

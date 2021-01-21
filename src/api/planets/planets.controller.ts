@@ -7,6 +7,7 @@ import {
   Put,
   Body,
   Post,
+  Query,
 } from '@nestjs/common';
 import {
   GetAllPlanetsService,
@@ -15,7 +16,7 @@ import {
   UpdatePlanetByIdService,
   CreatePlanetService,
 } from './services';
-import { BodyPlanetDto } from './dtos';
+import { BodyPlanetDto, QueryPaginateDto } from './dtos';
 
 @Controller('planets')
 export class PlanetsController {
@@ -28,9 +29,9 @@ export class PlanetsController {
   ) {}
 
   @Get()
-  async getAllPlanets(): Promise<any> {
+  async getAllPlanets(@Query() query: QueryPaginateDto): Promise<any> {
     try {
-      return await this.getAllPlanetsService.getAllPlanets();
+      return await this.getAllPlanetsService.getAllPlanets(query);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
