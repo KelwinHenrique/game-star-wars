@@ -32,4 +32,11 @@ export class PlanetsRepository {
   async deletePlanetById(planetId: string): Promise<Planet> {
     return this.planetModel.findByIdAndDelete(planetId);
   }
+
+  async updatePlanetById(
+    planetId: string,
+    bodyPlanetDto: any,
+  ): Promise<Planet> {
+    return this.planetModel.findByIdAndUpdate(planetId, bodyPlanetDto);
+  }
 }
