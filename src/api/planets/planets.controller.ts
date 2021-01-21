@@ -15,6 +15,7 @@ import {
   DeletePlanetByIdService,
   UpdatePlanetByIdService,
   CreatePlanetService,
+  GetPlanetByNameService,
 } from './services';
 import { BodyPlanetDto, QueryPaginateDto } from './dtos';
 
@@ -26,7 +27,42 @@ export class PlanetsController {
     private deletePlanetByIdService: DeletePlanetByIdService,
     private updatePlanetByIdService: UpdatePlanetByIdService,
     private createPlanetService: CreatePlanetService,
+    private getPlanetByNameService: GetPlanetByNameService,
   ) {}
+
+  /**
+   * @api {get} /planets Get a planet by name
+   * @apiName getPlanetByName
+   * @apiGroup Planet
+   * @apiParamExample {json} Request-Example:
+   * HOST/planets/?name=Hoth
+   * @apiSuccessExample {json} Success-Response:
+   * {
+   *  "name": "Hoth",
+   *  "ground": "Poroso",
+   *  "weather": "Hot",
+   *  "films": 5,
+   *  "_id": "6008f85b149ae8c5461e6c05",
+   *  "createdAt": "2021-01-21T03:43:23.157Z",
+   *  "updatedAt": "2021-01-21T03:43:23.157Z",
+   *  "__v": 0
+   * }
+   * @apiErrorExample {json} Error-Response:
+   * HTTP/1.1 400 Not Found
+   * {
+   *  "statusCode": 400,
+   *  "message": "Error to find planet",
+   *  "error": "Bad Request"
+   * }
+   */
+  @Get('by-name')
+  async getPlanetByName(@Query('name') name: string): Promise<any> {
+    try {
+      return await this.getPlanetByNameService.getPlanetByName(name);
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
 
   /**
    * @api {get} /planets Get all planets

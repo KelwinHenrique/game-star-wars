@@ -7,6 +7,7 @@ import {
   DeletePlanetByIdService,
   UpdatePlanetByIdService,
   CreatePlanetService,
+  GetPlanetByNameService,
 } from './services';
 import { PlanetsController } from './planets.controller';
 import { PlanetsRepository } from './planets.repository';
@@ -25,6 +26,7 @@ import { Planet, PlanetSchema } from './planets.schema';
     UpdatePlanetByIdService,
     CreatePlanetService,
     PlanetsRepository,
+    GetPlanetByNameService,
   ],
 })
 export class PlanetsModule {}
