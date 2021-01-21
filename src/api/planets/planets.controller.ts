@@ -6,12 +6,14 @@ import {
   Delete,
   Put,
   Body,
+  Post,
 } from '@nestjs/common';
 import {
   GetAllPlanetsService,
   GetPlanetByIdService,
   DeletePlanetByIdService,
   UpdatePlanetByIdService,
+  CreatePlanetService,
 } from './services';
 
 @Controller('planets')
@@ -21,6 +23,7 @@ export class PlanetsController {
     private getPlanetByIdService: GetPlanetByIdService,
     private deletePlanetByIdService: DeletePlanetByIdService,
     private updatePlanetByIdService: UpdatePlanetByIdService,
+    private createPlanetService: CreatePlanetService,
   ) {}
 
   @Get()
@@ -57,6 +60,15 @@ export class PlanetsController {
   ): Promise<any> {
     try {
       return await this.updatePlanetByIdService.updatePlanetById(id, body);
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
+  }
+
+  @Post()
+  async createPlanet(@Body() body: any): Promise<any> {
+    try {
+      return await this.createPlanetService.createPlanet(body);
     } catch (error) {
       throw new BadRequestException(error.message);
     }
