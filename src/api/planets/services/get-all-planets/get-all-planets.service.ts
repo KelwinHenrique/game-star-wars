@@ -7,18 +7,40 @@ import { Planet } from './../../planets.schema';
 export class GetAllPlanetsService {
   constructor(private readonly planetsRepository: PlanetsRepository) {}
 
-  async getAllPlanets(query: QueryPaginateDto): Promise<any> {
+  async contAllPlanets(): Promise<number> {
+    try {
+      const count: number = await this.planetsRepository.countAllPlanets();
+      return count;
+    } catch (error) {
+      return Promise.reject({ messageError: 'Error to count planets' });
+    }
+  }
+
+  async doGetAllPlanets(query: QueryPaginateDto): Promise<any> {
     try {
       const planets: Planet[] = await this.planetsRepository.getAllPlanets(
         query,
       );
-      const count: number = await this.planetsRepository.countAllPlanets();
+      return planets;
+    } catch (error) {
+      return Promise.reject({
+        messageError: 'Error to find planets in database',
+      });
+    }
+  }
+
+  async getAllPlanets(query: QueryPaginateDto): Promise<any> {
+    try {
+      const planets: Planet[] = await this.doGetAllPlanets(query);
+      const count: number = await this.contAllPlanets();
       return {
         count,
         planets,
-      }
+      };
     } catch (error) {
-      return Promise.reject({ message: 'Error to find planets' });
+      return Promise.reject({
+        message: error.messageError || 'Error to find planets',
+      });
     }
   }
 }
