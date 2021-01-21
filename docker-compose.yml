@@ -1,6 +1,13 @@
 version: "3"
 
 services:
+  mongo:
+    container_name: mongo-container
+    image: mongo:3
+    restart: always
+    ports:
+      - "27017:27017"
+
   backend:
     container_name: game-star-wars
     build:
@@ -10,3 +17,5 @@ services:
      - "${PORT}:${PORT}"
     env_file:
      - .env
+    links:
+      - mongo
