@@ -3,6 +3,7 @@ import {
   GetAllPlanetsService,
   GetPlanetByIdService,
   DeletePlanetByIdService,
+  UpdatePlanetByIdService,
 } from './services';
 import { PlanetsController } from './planets.controller';
 
@@ -12,6 +13,7 @@ import { PlanetsController } from './planets.controller';
     GetAllPlanetsService,
     GetPlanetByIdService,
     DeletePlanetByIdService,
+    UpdatePlanetByIdService,
   ],
 })
 export class PlanetsModule {}

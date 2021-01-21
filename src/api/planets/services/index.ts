@@ -1,5 +1,11 @@
 import { GetAllPlanetsService } from './get-all-planets';
 import { GetPlanetByIdService } from './get-planet-by-id';
 import { DeletePlanetByIdService } from './delete-planet-by-id';
+import { UpdatePlanetByIdService } from './update-planet-by-id';
 
-export { GetAllPlanetsService, GetPlanetByIdService, DeletePlanetByIdService };
+export {
+  GetAllPlanetsService,
+  GetPlanetByIdService,
+  DeletePlanetByIdService,
+  UpdatePlanetByIdService,
+};
